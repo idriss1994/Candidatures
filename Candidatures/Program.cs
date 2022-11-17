@@ -1,7 +1,15 @@
+using Candidatures.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<CandidatureDbContext>(options =>
+{
+    options.UseSqlServer(configuration.GetConnectionString("MyConnection"));
+});
 
 var app = builder.Build();
 
