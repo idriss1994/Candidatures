@@ -30,6 +30,7 @@ namespace Candidatures.ViewModels
         [Display(Name = "Nombre d’années d’expérience")]
         public int NumberOfYearsOfExperience { get; set; }
 
+        [Required]
         [Display(Name = "Dernier employeur")]
         public string LastEmployer { get; set; }
 
