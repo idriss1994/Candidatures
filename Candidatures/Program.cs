@@ -1,4 +1,5 @@
 using Candidatures.Data;
+using Candidatures.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<CandidatureDbContext>(options =>
 {
     options.UseSqlServer(configuration.GetConnectionString("MyConnection"));
 });
+builder.Services.AddScoped<ICandidatureRepository, CandidatureRepository>();
 
 var app = builder.Build();
 
