@@ -7,6 +7,7 @@ var configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 builder.Services.AddDbContext<CandidatureDbContext>(options =>
 {
     options.UseSqlServer(configuration.GetConnectionString("MyConnection"));

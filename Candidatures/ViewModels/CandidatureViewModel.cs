@@ -27,15 +27,16 @@ namespace Candidatures.ViewModels
         [Display(Name = "Niveau d’étude")]
         public string LevelOfStudy { get; set; }
 
+        [Required(AllowEmptyStrings = true)]
         [Display(Name = "Nombre d’années d’expérience")]
         public int NumberOfYearsOfExperience { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         [Display(Name = "Dernier employeur")]
         public string LastEmployer { get; set; }
 
         [Required(ErrorMessage = "Uploader votre cv")]
         [Display(Name = "Uploader votre cv avec le format (PDF ou IMG)")]
-        public IFormFile CVFile{ get; set; }
+        public IFormFile CVFile { get; set; }
     }
 }

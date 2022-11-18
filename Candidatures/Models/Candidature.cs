@@ -10,6 +10,7 @@
         public string LevelOfStudy { get; set; }
         public int NumberOfYearsOfExperience { get; set; }
         public string LastEmployer { get; set; }
+        public string CVUrl { get; set; }
 
     }
 }
