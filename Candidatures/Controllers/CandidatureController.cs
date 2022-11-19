@@ -47,20 +47,23 @@ namespace Candidatures.Controllers
 
                     string cvFullPath = Path.Combine(_webHostEnvironment.WebRootPath, folderPathCandidature, fileName);
                     await model.CVFile.CopyToAsync(new FileStream(cvFullPath, FileMode.Create));
-                }
-                var candidature = new Candidature
-                {
-                    Id = Guid.NewGuid(),
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Email = model.Email,
-                    PhoneNumber = model.PhoneNumber,
-                    LevelOfStudy = model.LevelOfStudy,
-                    NumberOfYearsOfExperience = model.NumberOfYearsOfExperience,
-                    LastEmployer = model.LastEmployer
-                };
 
-                await _candidatureRepository.AddCandidatureAsync(candidature);
+                    var candidature = new Candidature
+                    {
+                        Id = Guid.NewGuid(),
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        Email = model.Email,
+                        PhoneNumber = model.PhoneNumber,
+                        LevelOfStudy = model.LevelOfStudy,
+                        NumberOfYearsOfExperience = model.NumberOfYearsOfExperience,
+                        LastEmployer = model.LastEmployer,
+                        CVUrl = cvFullPath
+                    };
+
+                    await _candidatureRepository.AddCandidatureAsync(candidature);
+                }
+               
             }
             return View(model);
         }
