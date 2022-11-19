@@ -8,10 +8,13 @@ namespace Candidatures.Controllers
     public class CandidatureController : Controller
     {
         private readonly ICandidatureRepository _candidatureRepository;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public CandidatureController(ICandidatureRepository candidatureRepository)
+        public CandidatureController(ICandidatureRepository candidatureRepository,
+            IWebHostEnvironment webHostEnvironment)
         {
             _candidatureRepository = candidatureRepository;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet("candidature")]
@@ -25,6 +28,26 @@ namespace Candidatures.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (model.CVFile != null)
+                {
+                    string fileName = model.CVFile.FileName;
+                    string folderCVsPath = Path.Combine(_webHostEnvironment.WebRootPath, "CVs");
+                    if (!Directory.Exists(folderCVsPath))
+                    {
+                        Directory.CreateDirectory(folderCVsPath);
+                    }
+
+                    string userFullName = $"{model.FirstName} {model.LastName}";
+                    string folderPathCandidature = Path.Combine(_webHostEnvironment.WebRootPath, folderCVsPath, userFullName);
+                    
+                    if (!Directory.Exists(folderPathCandidature))
+                    {
+                        Directory.CreateDirectory(folderPathCandidature);
+                    }
+
+                    string cvFullPath = Path.Combine(_webHostEnvironment.WebRootPath, folderPathCandidature, fileName);
+                    await model.CVFile.CopyToAsync(new FileStream(cvFullPath, FileMode.Create));
+                }
                 var candidature = new Candidature
                 {
                     Id = Guid.NewGuid(),

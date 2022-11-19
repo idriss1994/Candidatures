@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Candidatures.Helpers;
+using System.ComponentModel.DataAnnotations;
 
 namespace Candidatures.ViewModels
 {
@@ -20,23 +21,23 @@ namespace Candidatures.ViewModels
 
         [Required(ErrorMessage = "Saisir votre téléphone")]
         [Display(Name = "Téléphone")]
-        [Phone]
+        [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Saisir votre niveau d’étude")]
         [Display(Name = "Niveau d’étude")]
         public string LevelOfStudy { get; set; }
 
-        [Required(AllowEmptyStrings = true)]
         [Display(Name = "Nombre d’années d’expérience")]
-        public int NumberOfYearsOfExperience { get; set; }
+        public int? NumberOfYearsOfExperience { get; set; }
 
-        [Required(AllowEmptyStrings = true)]
         [Display(Name = "Dernier employeur")]
-        public string LastEmployer { get; set; }
+        public string? LastEmployer { get; set; }
 
-        [Required(ErrorMessage = "Uploader votre cv")]
+        //[Required(ErrorMessage = "Uploader votre cv")]
         [Display(Name = "Uploader votre cv avec le format (PDF ou IMG)")]
+        [DataType(DataType.Upload)]
+        [AllowedExtensions(new string[] { ".pdf", ".jpg", ".png" }, ErrorMessage = "L'extension de votre CV non autorisée.")]
         public IFormFile CVFile { get; set; }
     }
 }
