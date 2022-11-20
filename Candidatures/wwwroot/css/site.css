@@ -1,3 +1,13 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+}
+
 html {
   font-size: 14px;
 }
@@ -14,11 +24,13 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  background-color: #efefef4a;
 }
 
+
 .nav-link:hover {
-  background: rgb(178, 178, 178);
+  background: #efefef;
+  border-radius: 0.25rem;
 }
 
 .search-section {
@@ -34,7 +46,7 @@ body {
 }
 
 .search-form {
-   width: 50%;
+  width: 50%;
 }
 
 .search-form input {
@@ -48,6 +60,7 @@ body {
   border-radius: 8px;
   margin-bottom: 10px;
 }
+
 .search-form .btn {
   padding: 10px;
   border-radius: 8px;
@@ -61,4 +74,32 @@ body {
   color: #fff;
   background-color: #157347;
   border-color: #146c43;
+}
+
+.form-control {
+  background: #efefef4a;
+}
+
+.form-controls-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  gap: 2.5rem;
+}
+
+@media (max-width: 800px) {
+  .form-controls-content {
+    gap: 0;
+  }
+}
+
+
+
+
+.form-controls-content input,
+.fr-controls input {
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  width: 200px;
 }
