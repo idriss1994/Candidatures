@@ -34,6 +34,13 @@ namespace Candidatures.Controllers
             return View("List", model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await _candidatureRepository.DeleteCandidatureAsync(id);
+            return RedirectToAction("List");
+        }
+
         [HttpGet]
         public async Task<IActionResult> Details(Guid id)
         {
@@ -72,7 +79,7 @@ namespace Candidatures.Controllers
 
                     string userFullName = $"{model.FirstName} {model.LastName}";
                     string folderPathCandidature = Path.Combine(_webHostEnvironment.WebRootPath, folderCVsPath, userFullName);
-                    
+
                     if (!Directory.Exists(folderPathCandidature))
                     {
                         Directory.CreateDirectory(folderPathCandidature);
@@ -98,8 +105,8 @@ namespace Candidatures.Controllers
 
                     return RedirectToAction("Details", new { candidature.Id });
                 }
-               
-               
+
+
             }
             return View(model);
         }
