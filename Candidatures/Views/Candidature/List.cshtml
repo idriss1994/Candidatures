@@ -7,16 +7,20 @@
 <div class="container">
     <div class="search-section">
         <h3 class="display-4">Toute les candidatures</h3>
-       <div>
-           <form action="Search">
-                <input type="text" placeholder="Recherche" />
-                <button type="submit" class="btn btn-success" asp-action="Search">Rechercher</button>
+       <div class="search-form">
+            <form asp-action="Search">
+                <input type="text" name="term" placeholder="Recherche" />
+                <button type="submit" class="btn">Rechercher</button>
            </form>
        </div>
     </div>
     <hr />
     <div class="row">
-        @if (Model.Any())
+        @if (Model == null || Model.Any() == false)
+        {
+            <h3 class="display-4">Il n’y a pas de candidatures</h3>
+        }
+        else
         {
             foreach (var candidature in Model)
             {
@@ -24,11 +28,6 @@
                     <partial name="_CandidatureThumbnail" model="candidature" />
                 </div>
             }
-
-        }
-        else
-        {
-            <h3 class="display-4">Il n’y a pas de candidatures</h3>
         }
     </div>
 </div>

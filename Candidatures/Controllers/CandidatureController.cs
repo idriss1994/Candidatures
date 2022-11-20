@@ -26,6 +26,14 @@ namespace Candidatures.Controllers
         }
 
 
+        [HttpPost]
+        public async Task<IActionResult> Search(string term)
+        {
+            IEnumerable<Candidature> model = await _candidatureRepository.SearchAsync(term);
+
+            return View("List", model);
+        }
+
         [HttpGet]
         public async Task<IActionResult> Details(Guid id)
         {

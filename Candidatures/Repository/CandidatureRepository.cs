@@ -38,5 +38,20 @@ namespace Candidatures.Repository
         {
             return  await _dbContext.Candidatures.ToListAsync();
         }
+
+        public async Task<IEnumerable<Candidature>> SearchAsync(string term)
+        {
+            var candidatures = await GetAllCandidaturesAsync();
+            term ??= "";
+            if (candidatures != null)
+            {
+                return candidatures.Where(c => c.FirstName.Contains(term) ||
+                                        c.LastName.Contains(term) ||
+                                        c.LevelOfStudy.Contains(term) ||
+                                        c.NumberOfYearsOfExperience.Equals(term));
+            }
+
+            return new List<Candidature>();
+        }
     }
 }

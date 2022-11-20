@@ -18,13 +18,47 @@ body {
 }
 
 .nav-link:hover {
-    background: rgb(178, 178, 178);
+  background: rgb(178, 178, 178);
 }
 
 .search-section {
-  
- display: flex;
- justify-content: space-between;
- justify-items: center;
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.search-section h1 {
+  width: 50%;
+}
+
+.search-form {
+   width: 50%;
+}
+
+.search-form input {
+  outline: none;
+  width: 80%;
+  background: rgb(178, 178, 178);
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.search-form .btn {
+  padding: 10px;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+  font-size: 15px;
+}
+
+.search-form .btn:hover {
+  color: #fff;
+  background-color: #157347;
+  border-color: #146c43;
 }
