@@ -45,10 +45,10 @@ namespace Candidatures.Repository
             term ??= "";
             if (candidatures != null)
             {
-                return candidatures.Where(c => c.FirstName.Contains(term) ||
-                                        c.LastName.Contains(term) ||
-                                        c.LevelOfStudy.Contains(term) ||
-                                        c.NumberOfYearsOfExperience.Equals(term));
+                return candidatures.Where(c => c.FirstName.ToLower().Contains(term.ToLower()) ||
+                                        c.LastName.ToLower().Contains(term.ToLower()) ||
+                                        c.LevelOfStudy.ToLower().Contains(term.ToLower()) ||
+                                        c.NumberOfYearsOfExperience.ToString().Equals(term.ToLower()));
             }
 
             return new List<Candidature>();
