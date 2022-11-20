@@ -18,6 +18,15 @@ namespace Candidatures.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> List()
+        {
+            IEnumerable<Candidature> model = await _candidatureRepository.GetAllCandidaturesAsync();
+
+            return View(model);
+        }
+
+
+        [HttpGet]
         public async Task<IActionResult> Details(Guid id)
         {
             var candidature = await _candidatureRepository.FindCandidatureByIdAsync(id);

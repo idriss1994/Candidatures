@@ -16,3 +16,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.nav-link:hover {
+    background: rgb(178, 178, 178);
+}
+
+.search-section {
+  
+ display: flex;
+ justify-content: space-between;
+ justify-items: center;
+
+}
