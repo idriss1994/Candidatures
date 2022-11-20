@@ -1,0 +1,30 @@
+﻿@model Candidatures.ViewModels.CandidatureDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+
+<div class="row justify-content-center m-30">
+    <div class="col-sm-8">
+        <h1>Resumé</h1>
+        <div class="card">
+            <div class="card-header">
+                <h3>@Model.Candidature.FirstName @Model.Candidature.LastName</h3>
+            </div>
+
+            <div class="card-body text-center">
+                <h4>Email : @Model.Candidature.Email</h4>
+                <h4>Téléphone : @Model.Candidature.PhoneNumber </h4>
+                <h4>Niveau d'étude : @Model.Candidature.LevelOfStudy</h4>
+                <h4>Nombre d’années d’expérience: @(Model.Candidature.NumberOfYearsOfExperience ?? 0)</h4>
+                <h4>Dernier employeur: @(Model.Candidature.LastEmployer ?? "Aucun")</h4>
+            </div>
+            <div class="card-footer text-center">
+                <a href="~/@Model.Candidature.CVUrl" class="btn btn-secondary">CV</a>
+            </div>
+        </div>
+    </div>
+</div>

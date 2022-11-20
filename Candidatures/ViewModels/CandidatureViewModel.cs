@@ -37,7 +37,7 @@ namespace Candidatures.ViewModels
         //[Required(ErrorMessage = "Uploader votre cv")]
         [Display(Name = "Uploader votre cv avec le format (PDF ou IMG)")]
         [DataType(DataType.Upload)]
-        [AllowedExtensions(new string[] { ".pdf", ".jpg", ".png" }, ErrorMessage = "L'extension de votre CV non autorisée.")]
+        [AllowedExtensions(new string[] { ".pdf", ".jpg", ".png", ".jpeg" }, ErrorMessage = "L'extension de votre CV non autorisée.")]
         public IFormFile CVFile { get; set; }
     }
 }

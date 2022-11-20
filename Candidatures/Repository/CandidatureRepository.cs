@@ -1,5 +1,6 @@
 ﻿using Candidatures.Data;
 using Candidatures.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Candidatures.Repository
 {
@@ -31,6 +32,11 @@ namespace Candidatures.Repository
         public async Task<Candidature> FindCandidatureByIdAsync(Guid id)
         {
             return await _dbContext.Candidatures.FindAsync(id);
+        }
+
+        public async Task<IEnumerable<Candidature>> GetAllCandidaturesAsync()
+        {
+            return  await _dbContext.Candidatures.ToListAsync();
         }
     }
 }

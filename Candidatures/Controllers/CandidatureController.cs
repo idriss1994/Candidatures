@@ -17,6 +17,22 @@ namespace Candidatures.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Details(Guid id)
+        {
+            var candidature = await _candidatureRepository.FindCandidatureByIdAsync(id);
+            if (candidature == null)
+            {
+                return NotFound();
+            }
+            var model = new CandidatureDetailsViewModel
+            {
+                Candidature = candidature
+            };
+
+            return View(model);
+        }
+
         [HttpGet("candidature")]
         public IActionResult Create()
         {
@@ -58,11 +74,14 @@ namespace Candidatures.Controllers
                         LevelOfStudy = model.LevelOfStudy,
                         NumberOfYearsOfExperience = model.NumberOfYearsOfExperience,
                         LastEmployer = model.LastEmployer,
-                        CVUrl = cvFullPath
+                        CVUrl = Path.Combine("CVs", userFullName, fileName)
                     };
 
                     await _candidatureRepository.AddCandidatureAsync(candidature);
+
+                    return RedirectToAction("Details", new { candidature.Id });
                 }
+               
                
             }
             return View(model);
