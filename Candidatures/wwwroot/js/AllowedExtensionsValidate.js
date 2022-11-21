@@ -5,7 +5,6 @@
 
         if (value != ".pdf" && value != ".jpeg" && value != ".jpg" &&
         value != ".png") {
-            console.log("The value is: "+ value);
             return false;
         } 
         else {
