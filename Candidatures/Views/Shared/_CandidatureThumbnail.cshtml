@@ -1,14 +1,15 @@
 ﻿@model Candidature
 
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">@Model.FirstName @Model.FirstName</h5>
-        <p class="card-text">@Model.Email</p>
-        <p class="card-text">@Model.PhoneNumber</p>
-        <p class="card-text">@Model.LevelOfStudy</p>
-        <p class="card-text">@Model.NumberOfYearsOfExperience</p>
-        <p class="card-text">@Model.LastEmployer</p>
-        <a href="~/@Model.CVUrl" class="card-link">Afficher CV</a>
-        <a asp-controller="Candidature" asp-action="Delete" class="card-link text-danger">Supprimer</a>
+<div class="candidature-info">
+    <h3 class="card-title">@Model.FirstName @Model.LastName</h3>
+    <p class="card-text">@Model.Email</p>
+    <p class="card-text">@Model.PhoneNumber</p>
+    <p class="card-text">@Model.LevelOfStudy</p>
+    <div class="btns">
+        <a href="~/@Model.CVUrl" class="read-cv">CV</a>
+        <a asp-action="Details" asp-route-id="@Model.Id" class="btn-details">Détails</a>
+        <form method="post" asp-action="Delete" asp-route-id="@Model.Id">
+            <button type="submit" class="btn-delete">Supprime</button>
+        </form>
     </div>
 </div>

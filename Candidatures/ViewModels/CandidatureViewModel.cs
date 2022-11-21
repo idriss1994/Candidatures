@@ -34,7 +34,7 @@ namespace Candidatures.ViewModels
         [Display(Name = "Dernier employeur")]
         public string? LastEmployer { get; set; }
 
-        //[Required(ErrorMessage = "Uploader votre cv")]
+        [Required(ErrorMessage = "Uploader votre cv")]
         [Display(Name = "Uploader votre cv avec le format (PDF ou IMG)")]
         [DataType(DataType.Upload)]
         [AllowedExtensions(new string[] { ".pdf", ".jpg", ".png", ".jpeg" }, ErrorMessage = "L'extension de votre CV non autorisée.")]

@@ -25,6 +25,7 @@ html {
 
 body {
   background-color: #efefef4a;
+  overflow: scroll;
 }
 
 
@@ -78,6 +79,11 @@ body {
 
 .form-control {
   background: #efefef4a;
+  background: #fff;
+}
+
+.form-group {
+  margin-top: 50px;
 }
 
 .form-controls-content {
@@ -92,9 +98,6 @@ body {
   }
 }
 
-
-
-
 .form-controls-content input,
 .fr-controls input {
   margin-bottom: 10px;
@@ -103,3 +106,76 @@ body {
 .btn-primary {
   width: 200px;
 }
+
+/* -------- */
+.list-candidature {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(250px, auto));
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 5rem;
+}
+
+.candidature-info {
+  background-color: rgba(70, 71, 71, 0.781);
+  color: white;
+  font-weight: bold;
+  padding: 35px 45px;
+  border-radius: 8px;
+  translate: all .45s ease;
+  transition: all .45s ease;
+}
+
+.candidature-info h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.candidature-info p {
+  font-size: 1rem;
+  line-height: .5;
+  margin-bottom: 25px;
+}
+
+.candidature-info .btns {
+  display: flex;
+  justify-content:center;
+  gap: .5rem;
+}
+
+.read-cv,
+.btn-delete,
+.btn-details {
+  display: inline-block;
+  padding: 8px 18px;
+  background-color: #333333;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all .45s ease;
+  text-decoration: none;
+}
+
+.btn-delete {
+  background-color: red;
+  border: none;
+}
+
+.btn-details {
+  background-color: #0dcaf0;
+  border: none;
+}
+
+.btn-cv {
+  width: 150px;
+}
+
+.read-cv:hover,
+.btn-delete:hover,
+.btn-details:hover {
+  letter-spacing: 1px;
+  color: whitesmoke;
+}
+

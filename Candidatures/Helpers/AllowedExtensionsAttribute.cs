@@ -1,15 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace Candidatures.Helpers
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false)]
-    public sealed class AllowedExtensionsAttribute : ValidationAttribute
+    public sealed class AllowedExtensionsAttribute : ValidationAttribute, IClientModelValidator
     {
         private readonly string[] _extensions;
 
         public AllowedExtensionsAttribute(string[] extensions)
         {
             _extensions = extensions;
+        }
+
+        public void AddValidation(ClientModelValidationContext context)
+        {
+            context.Attributes.Add("data-val", "true");
+            context.Attributes.Add("data-val-allowed-extensions",
+                                 "Les valeur validées sont .jpg, .pdf, .png, .jpeg");
         }
 
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)

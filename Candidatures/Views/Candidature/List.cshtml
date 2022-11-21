@@ -1,33 +1,29 @@
-﻿@model IEnumerable<Candidature> 
+﻿@model IEnumerable<Candidature>
 
 @{
     ViewData["Title"] = "List des candidature";
 }
 
-<div class="container">
-    <div class="search-section">
-        <h3 class="display-4">Toute les candidatures</h3>
-       <div class="search-form">
-            <form asp-action="Search">
-                <input type="text" name="term" placeholder="Recherche" />
-                <button type="submit" class="btn">Rechercher</button>
-           </form>
-       </div>
+<div class="search-section">
+    <h3 class="display-4">Toute les candidatures</h3>
+    <div class="search-form">
+        <form asp-action="Search">
+            <input type="text" name="term" placeholder="Recherche" />
+            <button type="submit" class="btn">Rechercher</button>
+        </form>
     </div>
-    <hr />
-    <div class="row">
-        @if (Model == null || Model.Any() == false)
+</div>
+<hr />
+<div class="list-candidature">
+    @if (Model == null || Model.Any() == false)
+    {
+        <h3 class="display-4">Il n’y a pas de candidatures</h3>
+    }
+    else
+    {
+        foreach (var candidature in Model)
         {
-            <h3 class="display-4">Il n’y a pas de candidatures</h3>
+            <partial name="_CandidatureThumbnail" model="candidature" />
         }
-        else
-        {
-            foreach (var candidature in Model)
-            {
-                <div class="col-md-4">
-                    <partial name="_CandidatureThumbnail" model="candidature" />
-                </div>
-            }
-        }
-    </div>
+    }
 </div>

@@ -9,7 +9,7 @@
 
 <div class="row justify-content-center m-30">
     <div class="col-sm-8">
-        <h1>Resumé</h1>
+        <h1>Resumé:</h1>
         <div class="card">
             <div class="card-header">
                 <h3>@Model.Candidature.FirstName @Model.Candidature.LastName</h3>
@@ -23,7 +23,7 @@
                 <h4>Dernier employeur: @(Model.Candidature.LastEmployer ?? "Aucun")</h4>
             </div>
             <div class="card-footer text-center">
-                <a href="~/@Model.Candidature.CVUrl" class="btn btn-secondary">CV</a>
+                <a href="~/@Model.Candidature.CVUrl" class="btn btn-secondary btn-cv">CV</a>
             </div>
         </div>
     </div>
