@@ -16,8 +16,8 @@ namespace Candidatures.Helpers
         public void AddValidation(ClientModelValidationContext context)
         {
             context.Attributes.Add("data-val", "true");
-            context.Attributes.Add("data-val-allowed-extensions",
-                                 "Les valeur validées sont .jpg, .pdf, .png, .jpeg");
+            context.Attributes.Add("data-val-allowedExtensions",ErrorMessage);
+              
         }
 
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
