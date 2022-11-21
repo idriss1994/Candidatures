@@ -1,0 +1,12 @@
+﻿@model Candidature
+
+<div class="popup-content" id="pop">
+    @*<img src="~/images/delete-icon.jpg" alt="popup-icon" class="popup-icon" asp-append-version="true"/>*@
+    <h2>Suppression</h2>
+    <p>Êtes-vous sûr de vouloir supprimer?</p>
+    <form method="post" asp-action="Delete" asp-route-id="@Model.Id">
+        <button type="submit" class="btn-yes">Oui</button>
+        <button type="button" class="btn-no">No</button>
+    </form>
+    
+</div>

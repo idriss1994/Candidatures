@@ -8,8 +8,7 @@
     <div class="btns">
         <a href="~/@Model.CVUrl" class="read-cv">CV</a>
         <a asp-action="Details" asp-route-id="@Model.Id" class="btn-details">Détails</a>
-        <form method="post" asp-action="Delete" asp-route-id="@Model.Id">
-            <button type="submit" class="btn-delete">Supprime</button>
-        </form>
+        <button type="button" class="btn-delete">Supprime</button>
     </div>
 </div>
+

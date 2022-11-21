@@ -13,6 +13,7 @@
         </form>
     </div>
 </div>
+
 <hr />
 <div class="list-candidature">
     @if (Model == null || Model.Any() == false)
@@ -24,6 +25,7 @@
         foreach (var candidature in Model)
         {
             <partial name="_CandidatureThumbnail" model="candidature" />
+            <partial name="_PopupDelete" model="candidature"/>
         }
     }
 </div>
