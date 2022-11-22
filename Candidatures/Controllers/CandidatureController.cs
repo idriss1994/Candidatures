@@ -65,6 +65,7 @@ namespace Candidatures.Controllers
 
         [HttpPost("candidature")]
         [RequestFormLimits(MultipartBodyLengthLimit = 209715200)]
+        [RequestSizeLimit(209715200)]
         public async Task<IActionResult> Create(CandidatureViewModel model)
         {
             if (ModelState.IsValid)
