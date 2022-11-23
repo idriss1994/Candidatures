@@ -14,9 +14,9 @@ let buttonsDelete = document.querySelectorAll('.btn-delete');
 let btnClose = document.querySelector('.btn-no');
 
 buttonsDelete.forEach(btn => btn.addEventListener("click", () => {
-    document.querySelector('#pop').classList.add('open');
+    document.querySelector('#pop').style.display = "flex";
 }));
 
 btnClose.addEventListener("click", () => {
-    document.querySelector('#pop').classList.remove('open');
+    document.querySelector('#pop').style.display = "none";
 });
